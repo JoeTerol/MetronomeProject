@@ -42,6 +42,10 @@ function PPMtoMilisecond(ppm){
     return (60 / ppm) * 1000;
 }
 
+function decreasePPM (actualPPM, quantity)
+const result = actualPPM - quantity;
+return result < 0 ? 0 : result
+
 
 
 
