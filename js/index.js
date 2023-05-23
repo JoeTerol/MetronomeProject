@@ -13,6 +13,10 @@ const buttonCrease1PPM = document.querySelector('#buttton-crease-1-ppm')
 const buttonPlay = document.querySelector('#buttton-play')
 const audioMetronome = document.querySelector('#audio-metronome')
 
+// FUNCTIONS
 
+function renderchanges(ppm, isplay){
+    tit
+}
 
 
