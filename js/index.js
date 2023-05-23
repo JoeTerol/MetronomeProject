@@ -2,7 +2,7 @@
 
 let playNow = false;
 let PPM = 50; 
-let intervalo = undefined;
+let interval = undefined;
 const textPlaying = 'Empezar'
 const textStoped = 'Pausar';
 const titlePPM =  document.querySelector('#ppm');
@@ -16,7 +16,34 @@ const audioMetronome = document.querySelector('#audio-metronome')
 // FUNCTIONS
 
 function renderchanges(ppm, isplay){
-    tit
+    titlePPM.textContent = ppm;
+    buttonPlay.textContent = playNow ? textStoped : textPlaying;
+    
+    return true;
 }
+
+
+function playorpause(ppm, audio, isplay , actualInterval){
+    let miIntervalo ;
+    clearInterval(actualInterval);
+    if(isplay){
+        miIntervalo = setInterval(function() {
+            audio.play();
+
+            
+
+        }); PPMtoMilisecond(ppm)
+ 
+    }
+    return miIntervalo
+}
+
+function PPMtoMilisecond(ppm){
+    return (60 / ppm) * 1000;
+}
+
+
+
+
 
 
