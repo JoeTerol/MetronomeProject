@@ -6,11 +6,11 @@ let interval = undefined;
 const textPlaying = 'Empezar'
 const textStoped = 'Pausar';
 const titlePPM =  document.querySelector('#ppm');
-const buttonDecrease5PPM = document.querySelector('#buttton-decrease-5-ppm')
-const buttonDecrease1PPM = document.querySelector('#buttton-decrease-1-ppm')
+const buttonDecrease5PPM = document.querySelector('#button-decrease-5-ppm')
+const buttonDecrease1PPM = document.querySelector('#button-decrease-1-ppm')
 const buttonCrease5PPM = document.querySelector('#buttton-crease-5-ppm')
 const buttonCrease1PPM = document.querySelector('#buttton-crease-1-ppm')
-const buttonPlay = document.querySelector('#buttton-play')
+const buttonPlay = document.querySelector('#button-play')
 const audioMetronome = document.querySelector('#audio-metronome')
 
 // FUNCTIONS
