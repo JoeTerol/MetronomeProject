@@ -17,6 +17,7 @@ const audioMetronome = document.querySelector('#audio-metronome')
 
 function renderchanges(ppm, isplay){
     titlePPM.textContent = ppm;
+
     buttonPlay.textContent = playNow ? textStoped : textPlaying;
     
     return true;
@@ -42,7 +43,7 @@ function PPMtoMilisecond(ppm){
     return (60 / ppm) * 1000;
 }
 
-function decreasePPM(actualPPM, quantity){
+function decreasePPM(actualPPM, quantity=1){
 const result = actualPPM - quantity;
 return result < 0 ? 0 : result; 
 }
@@ -69,13 +70,13 @@ return result < 0 ? 0 : result;
     renderchanges(PPM, playNow);
  }
 function eventcrease1PPM(event) {
-    PPM = decreasePPM(PPM);
+    PPM = creasePPM(PPM);
     interval = playorpause(PPM, audioMetronome, playNow, interval);
     renderchanges(PPM, playNow);
 
 }
 function eventcrease5PPM(event) {
-    PPM = decreasePPM(PPM, 5 );
+    PPM = creasePPM(PPM, 5 );
     interval = playorpause(PPM, audioMetronome, playNow, interval);
     renderchanges(PPM, playNow);
 
@@ -83,8 +84,8 @@ function eventcrease5PPM(event) {
 // EVENTS
  buttonDecrease5PPM.addEventListener("click", eventdecrease5PPM);
  buttonDecrease1PPM.addEventListener("click", eventdecrease1PPM);
- buttonCrease5PPM.addEventListener("click", eventdecrease5PPM );
- buttonDecrease1PPM.addEventListener("click", eventdecrease1PPM);
+ buttonCrease5PPM.addEventListener("click", eventcrease5PPM );
+ buttonCrease1PPM.addEventListener("click", eventcrease1PPM);
 
 
 //  Start
