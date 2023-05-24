@@ -1,7 +1,7 @@
 // VARIABLES
 
 let playNow = false;
-let PPM = 50; 
+let BPM = 50; 
 let interval = undefined;
 const textPlaying = 'Empezar'
 const textStoped = 'Pausar';
@@ -24,20 +24,17 @@ function renderchanges(ppm, isplay){
 }
 
 
-function playorpause(ppm, audio, isplay , actualInterval){
-    let miIntervalo ;
+function playorpause(ppm, audio, isplay, actualInterval) {
+    let miIntervalo;
     clearInterval(actualInterval);
-    if(isplay){
-        miIntervalo = setInterval(function() {
-            audio.play();
-
-            
-
-        }); PPMtoMilisecond(ppm)
- 
+    if (isplay) {
+      miIntervalo = setInterval(function() {
+        audio.currentTime = 0;
+        audio.play();
+      }, PPMtoMilisecond(ppm));
     }
-    return miIntervalo
-}
+    return miIntervalo;
+  }
 
 function PPMtoMilisecond(ppm){
     return (60 / ppm) * 1000;
@@ -51,34 +48,40 @@ return result < 0 ? 0 : result;
     return actualPPM + quantity;
 
  }
-
- function eventplay(event){
-  playNow = !playNow;
-  interval = playorpause(PPM, audioMetronome, playNow, interval)
-  renderchanges(PPM, playNow);
- }
+ function eventplay(event) {
+    playNow = !playNow;
+    if (playNow) {
+      interval = playorpause(BPM, audioMetronome, true, interval);
+    } else {
+      clearInterval(interval);
+    }
+    renderchanges(BPM, playNow);
+  }
+  
+  buttonPlay.addEventListener("click", eventplay);
+  
  function eventdecrease5PPM(event) {
-    PPM = decreasePPM(PPM, 5);
-    interval = playorpause(PPM, audioMetronome, playNow, interval);
-    renderchanges(PPM, playNow);
+    BPM = decreasePPM(BPM, 5);
+    interval = playorpause(BPM, audioMetronome, playNow, interval);
+    renderchanges(BPM, playNow);
 
 }
 
  function eventdecrease1PPM(event){
-    PPM = decreasePPM(PPM);
-    interval = playorpause(PPM, audioMetronome, playNow, interval);
-    renderchanges(PPM, playNow);
+    BPM = decreasePPM(BPM);
+    interval = playorpause(BPM, audioMetronome, playNow, interval);
+    renderchanges(BPM, playNow);
  }
 function eventcrease1PPM(event) {
-    PPM = creasePPM(PPM);
-    interval = playorpause(PPM, audioMetronome, playNow, interval);
-    renderchanges(PPM, playNow);
+    BPM = creasePPM(BPM);
+    interval = playorpause(BPM, audioMetronome, playNow, interval);
+    renderchanges(BPM, playNow);
 
 }
 function eventcrease5PPM(event) {
-    PPM = creasePPM(PPM, 5 );
-    interval = playorpause(PPM, audioMetronome, playNow, interval);
-    renderchanges(PPM, playNow);
+    BPM = creasePPM(BPM, 5 );
+    interval = playorpause(BPM, audioMetronome, playNow, interval);
+    renderchanges(BPM, playNow);
 
 }
 // EVENTS
@@ -91,7 +94,7 @@ function eventcrease5PPM(event) {
 //  Start
 
 
-renderchanges(PPM,playNow);
+renderchanges(BPM,playNow);
 
 
 
