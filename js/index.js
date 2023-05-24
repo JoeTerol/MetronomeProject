@@ -48,9 +48,38 @@ return result < 0 ? 0 : result;
 }
  function creasePPM(actualPPM, quantity=1) {
     return actualPPM + quantity;
-    
+
  }
 
+ function eventplay(event){
+  playNow = !playNow;
+  interval = playorpause(PPM, audioMetronome, playNow, interval)
+  renderchanges(PPM, playNow);
+ }
+ function eventdecrease5PPM(event) {
+    PPM = decreasePPM(PPM, 5);
+    interval = playorpause(PPM, audioMetronome, playNow, interval);
+    renderchanges(PPM, playNow);
+
+}
+
+ function eventdecrease1PPM(event){
+    PPM = decreasePPM(PPM);
+    interval = playorpause(PPM, audioMetronome, playNow, interval);
+    renderchanges(PPM, playNow);
+ }
+function eventcrease1PPM(event) {
+    PPM = decreasePPM(PPM);
+    interval = playorpause(PPM, audioMetronome, playNow, interval);
+    renderchanges(PPM, playNow);
+
+}
+function eventcrease5PPM(event) {
+    PPM = decreasePPM(PPM, 5 );
+    interval = playorpause(PPM, audioMetronome, playNow, interval);
+    renderchanges(PPM, playNow);
+
+}
 
 
 
