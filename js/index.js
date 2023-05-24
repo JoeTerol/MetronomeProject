@@ -84,7 +84,13 @@ function eventcrease5PPM(event) {
  buttonDecrease5PPM.addEventListener("click", eventdecrease5PPM);
  buttonDecrease1PPM.addEventListener("click", eventdecrease1PPM);
  buttonCrease5PPM.addEventListener("click", eventdecrease5PPM );
- buttonDecrease1PPM.addEventListener("click", eventdecrease1PPM)
+ buttonDecrease1PPM.addEventListener("click", eventdecrease1PPM);
+
+
+//  Start
+
+
+renderchanges(PPM,playNow);
 
 
 
